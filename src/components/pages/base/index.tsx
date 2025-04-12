@@ -3,9 +3,7 @@
 import { Box, Center } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Header from "src/components/header";
-import Preloader from "src/components/title/preloader";
 import Base64 from "src/components/base64-converter";
-import Navbar from "src/components/navbar";
 
 const Page = () => {
   const [preloaded, setPreloaded] = useState(false as boolean);
@@ -20,16 +18,13 @@ const Page = () => {
   const feature = () => {
     return (
       <>
-        {!isFullScreen && <Navbar />}
+        {!isFullScreen}
         <Center>
           <Box
             mt={10}
             px={5}
             maxW="1300px"
             w="100%"
-            style={{
-              animation: preloaded ? "fadeIn 1s ease-in-out" : "none",
-            }}
           >
             {!isFullScreen && <Header />}
             <Base64
@@ -56,15 +51,7 @@ const Page = () => {
           }
         `}
       </style>
-
-      {!preloaded ? (
-        <>
-          <Navbar />
-          <Preloader />
-        </>
-      ) : (
-        feature()
-      )}
+      {feature()}
     </>
   );
 };
