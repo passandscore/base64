@@ -1,19 +1,13 @@
-import { Button, useToast } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { toast } from "sonner";
 
 export const CopyButton = ({ input, output, tabIndex }: { 
   input: string;
   output: string;
   tabIndex: number;
 }) => {
-  const toast = useToast();
-
   const copied = () => {
-    toast({
-      title: "Copied",
-      status: "success",
-      isClosable: true,
-      position: "top",
-    });
+    toast.success("Copied");
   };
 
   return (

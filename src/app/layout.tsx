@@ -1,5 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import ThemeProvider from "./theme-provider";
 
 
@@ -15,6 +16,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           {children}
+          <Toaster position="bottom-center" richColors />
         </ThemeProvider>
       </body>
     </html>
